@@ -1,0 +1,8 @@
+.local
+.idea
+.git
+.gitignore
+.env
+docker-compose.yml
+Dockerfile
+docker-compose.override.yml

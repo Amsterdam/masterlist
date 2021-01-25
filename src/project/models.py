@@ -1,0 +1,192 @@
+from django.db import models
+
+
+class Project(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    project_number = models.BigIntegerField(blank=True, null=True)
+    old_project_numbers = models.CharField(max_length=255)
+    url = models.CharField(max_length=255, blank=True, null=True)
+    team = models.ForeignKey(
+        'organization.Team', models.DO_NOTHING, blank=True, null=True
+    )
+    infrastructure_segment = models.ForeignKey(
+        'infra.InfrastructureSegment', models.DO_NOTHING, blank=True, null=True
+    )
+    customer = models.ForeignKey(
+        'organization.Customer', models.DO_NOTHING, blank=True, null=True
+    )
+    customer_id_source = models.CharField(max_length=255, blank=True, null=True)
+    contact = models.ForeignKey(
+        'organization.Contact', models.DO_NOTHING, blank=True, null=True
+    )
+    project_type = models.ForeignKey(
+        'ProjectType', models.DO_NOTHING, blank=True, null=True
+    )
+    project_status = models.ForeignKey(
+        'ProjectStatus', models.DO_NOTHING, blank=True, null=True
+    )
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+    support_contract_status = models.ForeignKey(
+        'SupportContractStatus', models.DO_NOTHING, blank=True, null=True
+    )
+    support_contract_start = models.DateField(blank=True, null=True)
+    support_contract_end = models.DateField(blank=True, null=True)
+    support_contract_document_path = models.CharField(
+        max_length=255, blank=True, null=True
+    )
+    project_manager_user = models.ForeignKey(
+        'organization.User',
+        models.DO_NOTHING,
+        blank=True,
+        null=True,
+        related_name='projects_manager',
+    )
+    account_holder_user = models.ForeignKey(
+        'organization.User',
+        models.DO_NOTHING,
+        blank=True,
+        null=True,
+        related_name='projects_account_holder',
+    )
+    description = models.TextField(blank=True, null=True)
+    privacy_officer = models.ForeignKey(
+        'organization.PrivacyOfficer', models.DO_NOTHING, blank=True, null=True
+    )
+    security_officer = models.ForeignKey(
+        'organization.SecurityOfficer', models.DO_NOTHING, blank=True, null=True
+    )
+    information_manager = models.ForeignKey(
+        'organization.InformationManager', models.DO_NOTHING, blank=True, null=True
+    )
+    personal_data_status = models.ForeignKey(
+        'organization.PersonalDataStatus', models.DO_NOTHING
+    )
+    wpd_completion_date = models.DateField(blank=True, null=True)
+    wpd_document_status = models.ForeignKey(
+        'WpdDocumentStatus', models.DO_NOTHING, blank=True, null=True
+    )
+    path_wpd_document = models.CharField(max_length=255, blank=True, null=True)
+    release_date = models.DateField(blank=True, null=True)
+    path_release_document = models.CharField(max_length=255, blank=True, null=True)
+    destroy_date = models.DateField(blank=True, null=True)
+    path_destroy_document = models.CharField(max_length=255, blank=True, null=True)
+    security_availability_level = models.ForeignKey(
+        'SecurityAvailabilityLevel', models.DO_NOTHING, blank=True, null=True
+    )
+    security_integrity_level = models.ForeignKey(
+        'SecurityIntegrityLevel', models.DO_NOTHING, blank=True, null=True
+    )
+    security_confidentiality_level = models.ForeignKey(
+        'SecurityConfidentialityLevel', models.DO_NOTHING, blank=True, null=True
+    )
+    security_scan_required = models.TextField(
+        blank=True, null=True
+    )  # This field type is a guess.
+    security_scan_date = models.DateField(blank=True, null=True)
+    path_security_scan_document = models.CharField(
+        max_length=255, blank=True, null=True
+    )
+    authorization_granter_email = models.CharField(
+        max_length=255, blank=True, null=True
+    )
+    path_authorization_matrix_document = models.CharField(
+        max_length=255, blank=True, null=True
+    )
+    privacy_status_updates = models.TextField()
+    lijst_remco = models.BigIntegerField()
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        db_table = 'projects'
+        managed = False
+
+
+class ProjectStatus(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'project_status'
+        managed = False
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class ProjectType(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'project_types'
+        managed = False
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class SecurityAvailabilityLevel(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+
+    class Meta:
+        db_table = 'security_availability_levels'
+        managed = False
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class SecurityConfidentialityLevel(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+
+    class Meta:
+        db_table = 'security_confidentiality_levels'
+        managed = False
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class SecurityIntegrityLevel(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+
+    class Meta:
+        db_table = 'security_integrity_levels'
+        managed = False
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class SupportContractStatus(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'support_contract_status'
+        managed = False
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class WpdDocumentStatus(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'wpd_document_status'
+        managed = False
+
+    def __str__(self):
+        return f"{self.name}"

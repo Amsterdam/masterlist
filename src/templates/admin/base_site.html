@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrahead %}
+    <style>
+        .field-__str__ {
+            font-family: Consolas, monospace;
+        }
+        .select2-container--admin-autocomplete .select2-results > .select2-results__options {
+            max-height: 300px !important;
+        }
+    </style>
+{% endblock %}
+
+{% block footer %}
+    <script>
+    django.jQuery.fn.select2.defaults.set("dropdownAutoWidth", true);
+    </script>
+{% endblock %}
