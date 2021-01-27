@@ -93,10 +93,12 @@ class ServiceAdmin(admin.ModelAdmin):
     ]
     autocomplete_fields = ['project']
 
+
 @admin.register(models.Domain)
 class DomainAdmin(admin.ModelAdmin):
     list_display = ['name', 'customer', 'project', 'first_seen', 'last_seen']
     autocomplete_fields = ['customer', 'project']
+
 
 @admin.register(models.Server)
 class ServerAdmin(admin.ModelAdmin):

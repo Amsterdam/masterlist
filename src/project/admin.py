@@ -8,7 +8,7 @@ default_models = [
     models.SecurityConfidentialityLevel,
     models.SecurityIntegrityLevel,
     models.SupportContractStatus,
-    models.WpdDocumentStatus
+    models.WpdDocumentStatus,
 ]
 
 for i in default_models:
@@ -31,7 +31,7 @@ class ProjectAdmin(admin.ModelAdmin):
         'team',
         'customer',
     )
-    list_filter = ['team','project_status', 'personal_data_status']
+    list_filter = ['team', 'project_status', 'personal_data_status']
     radio_fields = {
         'project_status': admin.VERTICAL,
         'support_contract_status': admin.VERTICAL,
