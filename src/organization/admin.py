@@ -63,3 +63,14 @@ class InformationManagerAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_display = ['name', 'customer', 'role']
+    autocomplete_fields = ['customer']
+
+
+@admin.register(models.LegalBase)
+class LegalBaseAdmin(admin.ModelAdmin):
+    search_fields = ['name']
+
+
+@admin.register(models.PersonalDataStatus)
+class PersonalDataStatusAdmin(admin.ModelAdmin):
+    search_fields = ['name']

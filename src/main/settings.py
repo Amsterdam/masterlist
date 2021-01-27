@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 if strtobool(os.getenv('DATABASE_ENABLED', 'true')):
     DATABASES = {
         'default': {
-            'ENGINE': 'django.contrib.gis.db.backends.postgis',
+            'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.getenv('DATABASE_NAME', 'dev'),
             'USER': os.getenv('DATABASE_USER', 'dev'),
             'PASSWORD': os.getenv('DATABASE_PASSWORD', 'dev'),

@@ -3,9 +3,7 @@ from django.contrib import admin
 from . import models
 
 default_models = [
-    models.Domain,
     models.DatabaseCluster,
-    models.Server,
 ]
 
 for i in default_models:
@@ -20,6 +18,7 @@ class ContainerAdmin(admin.ModelAdmin):
         'first_seen',
         'last_seen',
     ]
+    autocomplete_fields = ['server']
 
 
 @admin.register(models.Database)
@@ -40,6 +39,7 @@ class DatabaseInstanceAdmin(admin.ModelAdmin):
 
 @admin.register(models.InfrastructureSegment)
 class InfrastructureSegmentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'letter']
     search_fields = ['name']
 
 
@@ -92,3 +92,14 @@ class ServiceAdmin(admin.ModelAdmin):
         'infrastructure_segment',
     ]
     autocomplete_fields = ['project']
+
+@admin.register(models.Domain)
+class DomainAdmin(admin.ModelAdmin):
+    list_display = ['name', 'customer', 'project', 'first_seen', 'last_seen']
+    autocomplete_fields = ['customer', 'project']
+
+@admin.register(models.Server)
+class ServerAdmin(admin.ModelAdmin):
+    list_display = ['name', 'infrastructure_segment', 'hostname', 'ip_address']
+    list_filter = ['infrastructure_segment']
+    search_fields = ['name', 'infrastructure_segment__name']

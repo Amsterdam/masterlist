@@ -1,9 +1,21 @@
 from django.contrib import admin
 
-from .models import Project
+from . import models
+
+default_models = [
+    models.ProjectStatus,
+    models.SecurityAvailabilityLevel,
+    models.SecurityConfidentialityLevel,
+    models.SecurityIntegrityLevel,
+    models.SupportContractStatus,
+    models.WpdDocumentStatus
+]
+
+for i in default_models:
+    admin.site.register(i)
 
 
-@admin.register(Project)
+@admin.register(models.Project)
 class ProjectAdmin(admin.ModelAdmin):
     save_on_top = True
     search_fields = ('name', 'project_number')
@@ -19,7 +31,7 @@ class ProjectAdmin(admin.ModelAdmin):
         'team',
         'customer',
     )
-    list_filter = ('team',)
+    list_filter = ['team','project_status', 'personal_data_status']
     radio_fields = {
         'project_status': admin.VERTICAL,
         'support_contract_status': admin.VERTICAL,
