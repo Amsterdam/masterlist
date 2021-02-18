@@ -20,7 +20,7 @@ services:
       - ./pyproject.toml:/app/pyproject.toml
     environment: &base-app-env
       SECRET_KEY: "insecure"
-      DEBUG: "true"
+      PYTHONBREAKPOINT:
     entrypoint: /app/deploy/wait-for-it.sh database:5432 --
 
   dev:
@@ -28,6 +28,9 @@ services:
     build:
       context: .
       target: dev
+    environment:
+      <<: *base-app-env
+      DEBUG: "true"
     command: python manage.py runserver 0.0.0.0:8000
 
   app:

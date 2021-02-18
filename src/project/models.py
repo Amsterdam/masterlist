@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Project(models.Model):
-    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
     project_number = models.BigIntegerField(blank=True, null=True)
     old_project_numbers = models.CharField(max_length=255)
@@ -100,93 +99,54 @@ class Project(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-    class Meta:
-        db_table = 'projects'
-        managed = False
-
 
 class ProjectStatus(models.Model):
-    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
-
-    class Meta:
-        db_table = 'project_status'
-        managed = False
 
     def __str__(self):
         return f"{self.name}"
 
 
 class ProjectType(models.Model):
-    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
-
-    class Meta:
-        db_table = 'project_types'
-        managed = False
 
     def __str__(self):
         return f"{self.name}"
 
 
 class SecurityAvailabilityLevel(models.Model):
-    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
-
-    class Meta:
-        db_table = 'security_availability_levels'
-        managed = False
 
     def __str__(self):
         return f"{self.name}"
 
 
 class SecurityConfidentialityLevel(models.Model):
-    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
-
-    class Meta:
-        db_table = 'security_confidentiality_levels'
-        managed = False
 
     def __str__(self):
         return f"{self.name}"
 
 
 class SecurityIntegrityLevel(models.Model):
-    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
-
-    class Meta:
-        db_table = 'security_integrity_levels'
-        managed = False
 
     def __str__(self):
         return f"{self.name}"
 
 
 class SupportContractStatus(models.Model):
-    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
-
-    class Meta:
-        db_table = 'support_contract_status'
-        managed = False
 
     def __str__(self):
         return f"{self.name}"
 
 
 class WpdDocumentStatus(models.Model):
-    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
-
-    class Meta:
-        db_table = 'wpd_document_status'
-        managed = False
 
     def __str__(self):
         return f"{self.name}"
