@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'organization',
     'infra',
     'project',
+    'migration',
 ]
 
 
