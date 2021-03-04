@@ -109,3 +109,4 @@ pip-selfcheck.json
 
 # static files
 web/static/
+docker-compose.override.yml

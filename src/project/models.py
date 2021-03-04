@@ -3,8 +3,8 @@ from django.db import models
 
 class Project(models.Model):
     name = models.CharField(max_length=255)
-    project_number = models.BigIntegerField(blank=True, null=True)
-    old_project_numbers = models.CharField(max_length=255)
+    project_number = models.BigIntegerField()
+    old_project_numbers = models.CharField(max_length=255,blank=True, null=True)
     url = models.CharField(max_length=255, blank=True, null=True)
     team = models.ForeignKey(
         'organization.Team', models.DO_NOTHING, blank=True, null=True
@@ -60,7 +60,7 @@ class Project(models.Model):
         'organization.InformationManager', models.DO_NOTHING, blank=True, null=True
     )
     personal_data_status = models.ForeignKey(
-        'organization.PersonalDataStatus', models.DO_NOTHING
+        'organization.PersonalDataStatus', models.DO_NOTHING, blank=True, null=True
     )
     wpd_completion_date = models.DateField(blank=True, null=True)
     wpd_document_status = models.ForeignKey(
@@ -93,8 +93,8 @@ class Project(models.Model):
     path_authorization_matrix_document = models.CharField(
         max_length=255, blank=True, null=True
     )
-    privacy_status_updates = models.TextField()
-    lijst_remco = models.BigIntegerField()
+    privacy_status_updates = models.TextField(blank=True, null=True)
+    lijst_remco = models.BigIntegerField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.name}"
