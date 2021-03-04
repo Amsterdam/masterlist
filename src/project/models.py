@@ -4,7 +4,7 @@ from django.db import models
 class Project(models.Model):
     name = models.CharField(max_length=255)
     project_number = models.BigIntegerField()
-    old_project_numbers = models.CharField(max_length=255,blank=True, null=True)
+    old_project_numbers = models.CharField(max_length=255, blank=True, null=True)
     url = models.CharField(max_length=255, blank=True, null=True)
     team = models.ForeignKey(
         'organization.Team', models.DO_NOTHING, blank=True, null=True
