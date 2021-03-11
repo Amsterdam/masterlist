@@ -25,9 +25,15 @@ class DatabaseName(models.Model):
 
 
 class DatabasePermissionTeamAuthorization(models.Model):
-    database_permission = models.ForeignKey('DatabasePermission', models.SET_NULL, blank=True, null=True)
-    team = models.ForeignKey('organization.Team', models.SET_NULL, blank=True, null=True)
-    legal_basis = models.ForeignKey('organization.LegalBase', models.SET_NULL, blank=True, null=True)
+    database_permission = models.ForeignKey(
+        'DatabasePermission', models.SET_NULL, blank=True, null=True
+    )
+    team = models.ForeignKey(
+        'organization.Team', models.SET_NULL, blank=True, null=True
+    )
+    legal_basis = models.ForeignKey(
+        'organization.LegalBase', models.SET_NULL, blank=True, null=True
+    )
     reason = models.TextField()
     authorization_granter_email = models.CharField(max_length=255)
     granted_from = models.DateField()
@@ -38,9 +44,15 @@ class DatabasePermissionTeamAuthorization(models.Model):
 
 
 class DatabasePermissionUserAuthorization(models.Model):
-    database_permission = models.ForeignKey('DatabasePermission', models.SET_NULL, blank=True, null=True)
-    user = models.ForeignKey('organization.User', models.SET_NULL, blank=True, null=True)
-    legal_basis = models.ForeignKey('organization.LegalBase', models.SET_NULL, blank=True, null=True)
+    database_permission = models.ForeignKey(
+        'DatabasePermission', models.SET_NULL, blank=True, null=True
+    )
+    user = models.ForeignKey(
+        'organization.User', models.SET_NULL, blank=True, null=True
+    )
+    legal_basis = models.ForeignKey(
+        'organization.LegalBase', models.SET_NULL, blank=True, null=True
+    )
     reason = models.TextField()
     authorization_granter_email = models.CharField(max_length=255)
     granted_from = models.DateField()
@@ -62,8 +74,12 @@ class DatabasePermission(models.Model):
 
 
 class Database(models.Model):
-    database_name = models.ForeignKey('DatabaseName', models.SET_NULL, blank=True, null=True)
-    database_cluster = models.ForeignKey('DatabaseCluster', models.SET_NULL, blank=True, null=True)
+    database_name = models.ForeignKey(
+        'DatabaseName', models.SET_NULL, blank=True, null=True
+    )
+    database_cluster = models.ForeignKey(
+        'DatabaseCluster', models.SET_NULL, blank=True, null=True
+    )
 
     def __str__(self):
         return f"{self.database_name} ({self.database_cluster})"
