@@ -11,14 +11,14 @@ class Organization(models.Model):
 class User(models.Model):
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
-    team = models.ForeignKey('Team', models.DO_NOTHING, blank=True, null=True)
+    team = models.ForeignKey('Team', models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
 
 class Contact(models.Model):
-    customer = models.ForeignKey('Customer', models.DO_NOTHING, blank=True, null=True)
+    customer = models.ForeignKey('Customer', models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=255)
     role = models.CharField(max_length=255, blank=True, null=True)
     email = models.CharField(max_length=255, blank=True, null=True)
@@ -30,7 +30,7 @@ class Contact(models.Model):
 class Customer(models.Model):
     name = models.CharField(max_length=255)
     organization = models.ForeignKey(
-        'Organization', models.DO_NOTHING, blank=True, null=True
+        'Organization', models.SET_NULL, blank=True, null=True
     )
 
     def __str__(self):
@@ -72,7 +72,7 @@ class SecurityOfficer(models.Model):
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255, blank=True, null=True)
     organization = models.ForeignKey(
-        'Organization', models.DO_NOTHING, blank=True, null=True
+        'Organization', models.SET_NULL, blank=True, null=True
     )
 
     def __str__(self):
@@ -83,14 +83,14 @@ class Team(models.Model):
     name = models.CharField(max_length=255)
     product_owner_user = models.ForeignKey(
         'User',
-        models.DO_NOTHING,
+        models.SET_NULL,
         blank=True,
         null=True,
         related_name='teams_product_owner',
     )
     scrum_master_user = models.ForeignKey(
         'User',
-        models.DO_NOTHING,
+        models.SET_NULL,
         blank=True,
         null=True,
         related_name='teams_scrum_master',

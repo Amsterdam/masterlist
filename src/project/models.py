@@ -7,28 +7,28 @@ class Project(models.Model):
     old_project_numbers = models.CharField(max_length=255, blank=True, null=True)
     url = models.CharField(max_length=255, blank=True, null=True)
     team = models.ForeignKey(
-        'organization.Team', models.DO_NOTHING, blank=True, null=True
+        'organization.Team', models.SET_NULL, blank=True, null=True
     )
     infrastructure_segment = models.ForeignKey(
-        'infra.InfrastructureSegment', models.DO_NOTHING, blank=True, null=True
+        'infra.InfrastructureSegment', models.SET_NULL, blank=True, null=True
     )
     customer = models.ForeignKey(
-        'organization.Customer', models.DO_NOTHING, blank=True, null=True
+        'organization.Customer', models.SET_NULL, blank=True, null=True
     )
     customer_id_source = models.CharField(max_length=255, blank=True, null=True)
     contact = models.ForeignKey(
-        'organization.Contact', models.DO_NOTHING, blank=True, null=True
+        'organization.Contact', models.SET_NULL, blank=True, null=True
     )
     project_type = models.ForeignKey(
-        'ProjectType', models.DO_NOTHING, blank=True, null=True
+        'ProjectType', models.SET_NULL, blank=True, null=True
     )
     project_status = models.ForeignKey(
-        'ProjectStatus', models.DO_NOTHING, blank=True, null=True
+        'ProjectStatus', models.SET_NULL, blank=True, null=True
     )
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     support_contract_status = models.ForeignKey(
-        'SupportContractStatus', models.DO_NOTHING, blank=True, null=True
+        'SupportContractStatus', models.SET_NULL, blank=True, null=True
     )
     support_contract_start = models.DateField(blank=True, null=True)
     support_contract_end = models.DateField(blank=True, null=True)
@@ -37,34 +37,34 @@ class Project(models.Model):
     )
     project_manager_user = models.ForeignKey(
         'organization.User',
-        models.DO_NOTHING,
+        models.SET_NULL,
         blank=True,
         null=True,
         related_name='projects_manager',
     )
     account_holder_user = models.ForeignKey(
         'organization.User',
-        models.DO_NOTHING,
+        models.SET_NULL,
         blank=True,
         null=True,
         related_name='projects_account_holder',
     )
     description = models.TextField(blank=True, null=True)
     privacy_officer = models.ForeignKey(
-        'organization.PrivacyOfficer', models.DO_NOTHING, blank=True, null=True
+        'organization.PrivacyOfficer', models.SET_NULL, blank=True, null=True
     )
     security_officer = models.ForeignKey(
-        'organization.SecurityOfficer', models.DO_NOTHING, blank=True, null=True
+        'organization.SecurityOfficer', models.SET_NULL, blank=True, null=True
     )
     information_manager = models.ForeignKey(
-        'organization.InformationManager', models.DO_NOTHING, blank=True, null=True
+        'organization.InformationManager', models.SET_NULL, blank=True, null=True
     )
     personal_data_status = models.ForeignKey(
-        'organization.PersonalDataStatus', models.DO_NOTHING, blank=True, null=True
+        'organization.PersonalDataStatus', models.SET_NULL, blank=True, null=True
     )
     wpd_completion_date = models.DateField(blank=True, null=True)
     wpd_document_status = models.ForeignKey(
-        'WpdDocumentStatus', models.DO_NOTHING, blank=True, null=True
+        'WpdDocumentStatus', models.SET_NULL, blank=True, null=True
     )
     path_wpd_document = models.CharField(max_length=255, blank=True, null=True)
     release_date = models.DateField(blank=True, null=True)
@@ -72,13 +72,13 @@ class Project(models.Model):
     destroy_date = models.DateField(blank=True, null=True)
     path_destroy_document = models.CharField(max_length=255, blank=True, null=True)
     security_availability_level = models.ForeignKey(
-        'SecurityAvailabilityLevel', models.DO_NOTHING, blank=True, null=True
+        'SecurityAvailabilityLevel', models.SET_NULL, blank=True, null=True
     )
     security_integrity_level = models.ForeignKey(
-        'SecurityIntegrityLevel', models.DO_NOTHING, blank=True, null=True
+        'SecurityIntegrityLevel', models.SET_NULL, blank=True, null=True
     )
     security_confidentiality_level = models.ForeignKey(
-        'SecurityConfidentialityLevel', models.DO_NOTHING, blank=True, null=True
+        'SecurityConfidentialityLevel', models.SET_NULL, blank=True, null=True
     )
     security_scan_required = models.TextField(
         blank=True, null=True
