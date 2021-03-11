@@ -1,4 +1,5 @@
 # Masterlist
+[![CI](https://github.com/Amsterdam/masterlist/actions/workflows/main.yml/badge.svg)](https://github.com/Amsterdam/masterlist/actions/workflows/main.yml)
 
 ---
 #### To run development:
