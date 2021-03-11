@@ -4,7 +4,7 @@ from django.db import models
 class DatabaseInstance(models.Model):
     name = models.CharField(unique=True, max_length=255)
     database_cluster = models.ForeignKey(
-        'DatabaseCluster', models.DO_NOTHING, blank=True, null=True
+        'DatabaseCluster', models.SET_NULL, blank=True, null=True
     )
 
     def __str__(self):
@@ -14,7 +14,7 @@ class DatabaseInstance(models.Model):
 class DatabaseName(models.Model):
     name = models.CharField(unique=True, max_length=255)
     project = models.ForeignKey(
-        'project.Project', models.DO_NOTHING, blank=True, null=True
+        'project.Project', models.SET_NULL, blank=True, null=True
     )
 
     class Meta:
@@ -25,9 +25,9 @@ class DatabaseName(models.Model):
 
 
 class DatabasePermissionTeamAuthorization(models.Model):
-    database_permission = models.ForeignKey('DatabasePermission', models.DO_NOTHING)
-    team = models.ForeignKey('organization.Team', models.DO_NOTHING)
-    legal_basis = models.ForeignKey('organization.LegalBase', models.DO_NOTHING)
+    database_permission = models.ForeignKey('DatabasePermission', models.SET_NULL, blank=True, null=True)
+    team = models.ForeignKey('organization.Team', models.SET_NULL, blank=True, null=True)
+    legal_basis = models.ForeignKey('organization.LegalBase', models.SET_NULL, blank=True, null=True)
     reason = models.TextField()
     authorization_granter_email = models.CharField(max_length=255)
     granted_from = models.DateField()
@@ -38,9 +38,9 @@ class DatabasePermissionTeamAuthorization(models.Model):
 
 
 class DatabasePermissionUserAuthorization(models.Model):
-    database_permission = models.ForeignKey('DatabasePermission', models.DO_NOTHING)
-    user = models.ForeignKey('organization.User', models.DO_NOTHING)
-    legal_basis = models.ForeignKey('organization.LegalBase', models.DO_NOTHING)
+    database_permission = models.ForeignKey('DatabasePermission', models.SET_NULL, blank=True, null=True)
+    user = models.ForeignKey('organization.User', models.SET_NULL, blank=True, null=True)
+    legal_basis = models.ForeignKey('organization.LegalBase', models.SET_NULL, blank=True, null=True)
     reason = models.TextField()
     authorization_granter_email = models.CharField(max_length=255)
     granted_from = models.DateField()
@@ -53,7 +53,7 @@ class DatabasePermissionUserAuthorization(models.Model):
 class DatabasePermission(models.Model):
     name = models.CharField(unique=True, max_length=255)
     database_name = models.ForeignKey(
-        'DatabaseName', models.DO_NOTHING, blank=True, null=True
+        'DatabaseName', models.SET_NULL, blank=True, null=True
     )
     description = models.TextField()
 
@@ -62,8 +62,8 @@ class DatabasePermission(models.Model):
 
 
 class Database(models.Model):
-    database_name = models.ForeignKey('DatabaseName', models.DO_NOTHING)
-    database_cluster = models.ForeignKey('DatabaseCluster', models.DO_NOTHING)
+    database_name = models.ForeignKey('DatabaseName', models.SET_NULL, blank=True, null=True)
+    database_cluster = models.ForeignKey('DatabaseCluster', models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return f"{self.database_name} ({self.database_cluster})"
@@ -73,10 +73,10 @@ class Domain(models.Model):
     name = models.CharField(max_length=255)
     customer_text = models.CharField(max_length=255)
     customer = models.ForeignKey(
-        'organization.Customer', models.DO_NOTHING, blank=True, null=True
+        'organization.Customer', models.SET_NULL, blank=True, null=True
     )
     project = models.ForeignKey(
-        'project.Project', models.DO_NOTHING, blank=True, null=True
+        'project.Project', models.SET_NULL, blank=True, null=True
     )
     first_seen = models.DateTimeField(blank=True, null=True)
     last_seen = models.DateTimeField(blank=True, null=True)
@@ -86,7 +86,7 @@ class Domain(models.Model):
 
 
 class Container(models.Model):
-    server = models.ForeignKey('Server', models.DO_NOTHING, blank=True, null=True)
+    server = models.ForeignKey('Server', models.SET_NULL, blank=True, null=True)
     hash = models.CharField(max_length=255)
     container_name = models.CharField(max_length=255)
     first_seen = models.DateTimeField()
@@ -116,7 +116,7 @@ class DatabaseCluster(models.Model):
 class Server(models.Model):
     name = models.CharField(max_length=255)
     infrastructure_segment = models.ForeignKey(
-        'InfrastructureSegment', models.DO_NOTHING
+        'InfrastructureSegment', models.SET_NULL, blank=True, null=True
     )
     hostname = models.CharField(max_length=255)
     ip_address = models.CharField(max_length=255)
@@ -129,10 +129,10 @@ class Service(models.Model):
     name = models.CharField(max_length=255)
     active = models.BooleanField()
     infrastructure_segment = models.ForeignKey(
-        'InfrastructureSegment', models.DO_NOTHING, blank=True, null=True
+        'InfrastructureSegment', models.SET_NULL, blank=True, null=True
     )
     project = models.ForeignKey(
-        'project.Project', models.DO_NOTHING, blank=True, null=True
+        'project.Project', models.SET_NULL, blank=True, null=True
     )
 
     def __str__(self):
