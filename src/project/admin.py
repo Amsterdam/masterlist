@@ -49,6 +49,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
     def export_csv(self, request, qs):
         csv_export = CSVExport(encoding='utf-8-sig', delimiter=';')
+        # We use F values here to control the order
         qs = qs.values('id').annotate(
             name=F('name'),
             project_number=F('project_number'),
