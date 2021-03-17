@@ -15,7 +15,7 @@ class MockRequest(object):
 
 @pytest.mark.django_db
 class TestAdminExport:
-    def test_factory(self, project):
+    def test_csv_export(self, project):
         project_admin = ProjectAdmin(model=Project, admin_site=AdminSite())
         response = project_admin.export_csv(
             request=MockRequest(), qs=Project.objects.all()
