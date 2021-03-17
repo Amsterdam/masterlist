@@ -58,6 +58,9 @@ app:                                ## Run app
 bash:                               ## Run the container and start bash
 	$(run) dev bash
 
+shell:
+	$(manage) shell_plus --print-sql
+
 dev:                                ## Run the development app (and run extra migrations first)
 	$(run) --service-ports dev
 
