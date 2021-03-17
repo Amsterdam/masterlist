@@ -14,6 +14,7 @@ pip-tools
 pytest
 pytest-cov
 pytest-django
+pytest-factoryboy
 factory-boy
 
 # Code formatting

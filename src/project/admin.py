@@ -69,4 +69,4 @@ class ProjectAdmin(admin.ModelAdmin):
             project_description=F('description'),
             lijst_remco=F('lijst_remco'),
         )
-        return csv_export.export("export", qs.iterator(), download=False)
+        return csv_export.export("export", qs.iterator(), download=True)

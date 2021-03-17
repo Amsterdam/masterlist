@@ -48,11 +48,7 @@ class CSVExport:
         # 2. Create the HttpResponse using our iterator as content
         cls = StreamingHttpResponse if streaming else HttpResponse
 
-        response = cls(
-            self.serializer(iterator),
-            charset=self.encoding
-            #  content_type="text/csv",
-        )
+        response = cls(self.serializer(iterator), charset=self.encoding)
 
         # 3. Add additional headers to the response
         if download:
