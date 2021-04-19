@@ -4,23 +4,24 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
-asgiref==3.3.1
+asgiref==3.3.4
     # via django
 certifi==2020.12.5
     # via sentry-sdk
 defusedxml==0.7.1
     # via djangorestframework-xml
-django-extensions==3.1.1
+django-extensions==3.1.2
     # via -r requirements.in
-django==3.1.7
+django==3.2
     # via
     #   -r requirements.in
+    #   django-extensions
     #   djangorestframework
 djangorestframework-csv==2.1.0
     # via drf-amsterdam
 djangorestframework-xml==2.0.0
     # via drf-amsterdam
-djangorestframework==3.12.2
+djangorestframework==3.12.4
     # via
     #   djangorestframework-csv
     #   drf-amsterdam
