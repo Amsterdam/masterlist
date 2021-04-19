@@ -6,7 +6,7 @@
 #
 appdirs==1.4.4
     # via black
-asgiref==3.3.1
+asgiref==3.3.4
     # via
     #   -r ./requirements.txt
     #   django
@@ -26,17 +26,18 @@ click==7.1.2
     #   pip-tools
 coverage==5.5
     # via pytest-cov
-decorator==4.4.2
+decorator==5.0.7
     # via ipython
 defusedxml==0.7.1
     # via
     #   -r ./requirements.txt
     #   djangorestframework-xml
-django-extensions==3.1.1
+django-extensions==3.1.2
     # via -r ./requirements.txt
-django==3.1.7
+django==3.2
     # via
     #   -r ./requirements.txt
+    #   django-extensions
     #   djangorestframework
 djangorestframework-csv==2.1.0
     # via
@@ -46,7 +47,7 @@ djangorestframework-xml==2.0.0
     # via
     #   -r ./requirements.txt
     #   drf-amsterdam
-djangorestframework==3.12.2
+djangorestframework==3.12.4
     # via
     #   -r ./requirements.txt
     #   djangorestframework-csv
@@ -62,7 +63,7 @@ factory-boy==3.2.0
     # via
     #   -r requirements_dev.in
     #   pytest-factoryboy
-faker==6.6.1
+faker==8.1.0
     # via factory-boy
 inflection==0.5.1
     # via pytest-factoryboy
@@ -72,9 +73,9 @@ ipdb==0.13.7
     # via -r requirements_dev.in
 ipython-genutils==0.2.0
     # via traitlets
-ipython==7.21.0
+ipython==7.22.0
     # via ipdb
-isort==5.7.0
+isort==5.8.0
     # via -r requirements_dev.in
 jedi==0.18.0
     # via ipython
@@ -82,7 +83,7 @@ mypy-extensions==0.4.3
     # via black
 packaging==20.9
     # via pytest
-parso==0.8.1
+parso==0.8.2
     # via jedi
 pathspec==0.8.1
     # via black
@@ -92,11 +93,11 @@ pexpect==4.8.0
     # via ipython
 pickleshare==0.7.5
     # via ipython
-pip-tools==6.0.1
+pip-tools==6.1.0
     # via -r requirements_dev.in
 pluggy==0.13.1
     # via pytest
-prompt-toolkit==3.0.17
+prompt-toolkit==3.0.18
     # via ipython
 psycopg2-binary==2.8.6
     # via -r ./requirements.txt
@@ -110,11 +111,11 @@ pyparsing==2.4.7
     # via packaging
 pytest-cov==2.11.1
     # via -r requirements_dev.in
-pytest-django==4.1.0
+pytest-django==4.2.0
     # via -r requirements_dev.in
 pytest-factoryboy==2.1.0
     # via -r requirements_dev.in
-pytest==6.2.2
+pytest==6.2.3
     # via
     #   -r requirements_dev.in
     #   pytest-cov
@@ -126,7 +127,7 @@ pytz==2021.1
     # via
     #   -r ./requirements.txt
     #   django
-regex==2020.11.13
+regex==2021.4.4
     # via black
 sentry-sdk==1.0.0
     # via -r ./requirements.txt
@@ -149,7 +150,7 @@ toml==0.10.2
     #   pytest
 traitlets==5.0.5
     # via ipython
-typed-ast==1.4.2
+typed-ast==1.4.3
     # via black
 typing-extensions==3.7.4.3
     # via black
