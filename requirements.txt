@@ -4,42 +4,20 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
-asgiref==3.3.1
-    # via django
-certifi==2020.12.5
-    # via sentry-sdk
-defusedxml==0.7.1
-    # via djangorestframework-xml
-django-extensions==3.1.1
-    # via -r requirements.in
-django==3.1.7
-    # via
-    #   -r requirements.in
-    #   djangorestframework
-djangorestframework-csv==2.1.0
-    # via drf-amsterdam
-djangorestframework-xml==2.0.0
-    # via drf-amsterdam
-djangorestframework==3.12.2
-    # via
-    #   djangorestframework-csv
-    #   drf-amsterdam
-    #   drf-extensions
-drf-amsterdam==0.4.1
-    # via -r requirements.in
-drf-extensions==0.7.0
-    # via drf-amsterdam
-psycopg2-binary==2.8.6
-    # via -r requirements.in
-pytz==2021.1
-    # via django
-sentry-sdk==1.0.0
-    # via -r requirements.in
-six==1.15.0
-    # via djangorestframework-csv
-sqlparse==0.4.1
-    # via django
-unicodecsv==0.14.1
-    # via djangorestframework-csv
-urllib3==1.26.4
-    # via sentry-sdk
+asgiref==3.3.4            # via django
+certifi==2020.12.5        # via sentry-sdk
+defusedxml==0.7.1         # via djangorestframework-xml
+django-extensions==3.1.2  # via -r requirements.in
+django==3.2               # via -r requirements.in, django-extensions, djangorestframework
+djangorestframework-csv==2.1.0  # via drf-amsterdam
+djangorestframework-xml==2.0.0  # via drf-amsterdam
+djangorestframework==3.12.4  # via djangorestframework-csv, drf-amsterdam, drf-extensions
+drf-amsterdam==0.4.1      # via -r requirements.in
+drf-extensions==0.7.0     # via drf-amsterdam
+psycopg2-binary==2.8.6    # via -r requirements.in
+pytz==2021.1              # via django
+sentry-sdk==1.0.0         # via -r requirements.in
+six==1.15.0               # via djangorestframework-csv
+sqlparse==0.4.1           # via django
+unicodecsv==0.14.1        # via djangorestframework-csv
+urllib3==1.26.4           # via sentry-sdk
