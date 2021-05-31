@@ -6,7 +6,7 @@
 #
 asgiref==3.3.4
     # via django
-certifi==2020.12.5
+certifi==2021.5.30
     # via sentry-sdk
 defusedxml==0.7.1
     # via djangorestframework-xml
@@ -42,5 +42,5 @@ sqlparse==0.4.1
     # via django
 unicodecsv==0.14.1
     # via djangorestframework-csv
-urllib3==1.26.4
+urllib3==1.26.5
     # via sentry-sdk
