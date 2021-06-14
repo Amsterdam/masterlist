@@ -1,0 +1,17 @@
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>{% trans "Name" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for team in teams %}
+    <tr>
+      <td>{{ team.pk }}</td>
+      <td>{{ team.name }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+

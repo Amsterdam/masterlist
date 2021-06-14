@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 import os
-import sys
+import socket
 from distutils.util import strtobool
 
 import sentry_sdk
+from django.utils.translation import gettext_noop
 from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -26,6 +27,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = strtobool(os.getenv('DEBUG', 'false'))
 
 ALLOWED_HOSTS = ['*']
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'projects'
+LOGOUT_REDIRECT_URL = 'login'
 
 # Application definition
 INSTALLED_APPS = [
@@ -36,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.postgres',
     # external libs
     'django.contrib.gis',
     'rest_framework',
     'django_extensions',
+    'django_filters',
     # internal apps
     'api',
     'organization',
@@ -48,12 +54,17 @@ INSTALLED_APPS = [
     'migration',
 ]
 
-
-INTERNAL_IPS = ('127.0.0.1', '0.0.0.0')
+INTERNAL_IPS = (
+    '127.0.0.1',
+    '0.0.0.0',
+)
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = [ip[:-1] + '1' for ip in ips] + ['127.0.0.1', '10.0.2.2']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -77,12 +88,15 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': ['django.templatetags.static', 'django.templatetags.i18n'],
         },
     },
 ]
 
 WSGI_APPLICATION = 'main.wsgi.application'
 
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Database
 if strtobool(os.getenv('DATABASE_ENABLED', 'true')):
@@ -105,11 +119,19 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+LOCALE_PATHS = ('locale',)
+LANGUAGES = [
+    ('en', gettext_noop('English')),
+    ('nl', gettext_noop('Dutch')),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATIC_URL = os.path.join(BASE_URL, 'static/')
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    'templates/static',
+]
 
 # Sentry
 SENTRY_DSN = os.getenv('SENTRY_DSN')
@@ -124,6 +146,12 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 100,
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
     ],
@@ -135,4 +163,20 @@ REST_FRAMEWORK = {
         'rest_framework_xml.renderers.XMLRenderer',
         'rest_framework.renderers.JSONRenderer',
     ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+    ],
 }
+
+if DEBUG:
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]
+
+    MIDDLEWARE += [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    ]
+    DEBUG_TOOLBAR_CONFIG = {
+        'SHOW_TOOLBAR_CALLBACK': lambda request: not request.is_ajax()
+    }
