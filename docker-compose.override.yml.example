@@ -12,16 +12,11 @@ version: "3.4"
 services:
   database:
     ports:
-      - "5432:5432" # allows to run database on different port on host
+      - "5432:5432"
   app:
     ports:
-      - "8000:8000" # allows to run app on different port on host
-    user: 1003:1003 # set current user id so it has access to mounted volumes
+      - "8000:8000"
 
   dev:
     ports:
       - "8000:8000"
-    user: 1003:1003
-
-  test:
-    user: 1003:1003

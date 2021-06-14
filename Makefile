@@ -3,8 +3,11 @@
 #
 # VERSION = 2020.01.29
 .PHONY = help pip-tools install requirements update test init
+UID:=$(shell id --user)
+GID:=$(shell id --group)
+
 dc = docker-compose
-run = $(dc) run --rm
+run = $(dc) run --rm -u ${UID}:${GID}
 manage = $(run) dev python manage.py
 pytest = $(run) test pytest $(ARGS)
 
@@ -34,6 +37,10 @@ migrations:                         ## Make migrations
 
 migrate:                            ## Migrate
 	$(manage) migrate
+
+messages:
+	$(manage) makemessages -a $(ARGS)
+	$(manage) compilemessages
 
 urls:
 	$(manage) show_urls
@@ -68,6 +75,10 @@ lint:                               ## Execute lint checks
 	$(run) test isort /app/src /app/tests --check --diff
 	$(run) test black /app/src /app/tests --check --diff
 
+lintfix:                            ## Execute lint fixes
+	$(run) test isort /app/src/$(APP) /app/tests/$(APP)
+	$(run) test black /app/src/$(APP) /app/tests/$(APP)
+
 test: lint                          ## Execute tests
 	$(run) test pytest /app/tests $(ARGS)
 
@@ -79,6 +90,13 @@ superuser:                          ## Create a superuser (user with admin right
 
 clean:                              ## Clean docker stuff
 	$(dc) down -v --remove-orphans
+
+FIXTURE = dump
+dumpdata:
+	$(run) dev bash -c './manage.py dumpdata -a --format=yaml $(APP) > /app/fixtures/$(FIXTURE).yaml'
+
+loaddata:
+	$(run) dev bash -c './manage.py loaddata /app/fixtures/$(FIXTURE).yaml'
 
 env:                                ## Print current env
 	env | sort

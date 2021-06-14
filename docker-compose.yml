@@ -18,6 +18,7 @@ services:
       - ./tests:/app/tests
       - ./deploy:/app/deploy
       - ./pyproject.toml:/app/pyproject.toml
+      - ./fixtures:/app/fixtures
     environment: &base-app-env
       SECRET_KEY: "insecure"
       PYTHONBREAKPOINT:

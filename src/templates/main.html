@@ -1,0 +1,155 @@
+{% extends 'minimal.html' %}
+
+{% block header %}
+    <header
+      class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
+    >
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"
+        >Masterlist</a>
+      <button
+        class="navbar-toggler position-absolute d-md-none collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenu"
+        aria-controls="sidebarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <form action="{% url "search" %}" method="get" class="w-100">
+          <input
+            name="search"
+            class="form-control form-control-dark w-100"
+            type="text"
+            placeholder="{% trans "Search" %}"
+            aria-label="Search"
+          />
+        </form>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+          <a class="nav-link" href="{% url 'logout' %}">Sign out</a>
+        </li>
+      </ul>
+    </header>
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+        >
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'projects' %}">
+                  <i class="fas fa-home"></i>
+                  Projects
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'teams' %}">
+                  <i class="fas fa-users"></i>
+                  Teams
+                </a>
+              </li>
+            </ul>
+
+            <h6
+              class="
+                sidebar-heading
+                d-flex
+                justify-content-between
+                align-items-center
+                px-3
+                mt-4
+                mb-1
+                text-muted
+              "
+            >
+              <span>Admin</span>
+              <a class="link-secondary" href="#" aria-label="Add a new report">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'admin:index' %}">
+                  <i class="fas fa-tools"></i>
+                  Admin
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="
+                sidebar-heading
+                d-flex
+                justify-content-between
+                align-items-center
+                px-3
+                mt-4
+                mb-1
+                text-muted
+                ">Language</h6>
+
+            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <div class="container g-3">
+                    <div class="row">
+                        <div class="col">
+                            <input name="next" type="hidden" value="{{ redirect_to }}">
+                            <select onchange="this.form.submit()" class="form-select form-select-sm" name="language">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% get_available_languages as LANGUAGES %}
+                                {% get_language_info_list for LANGUAGES as languages %}
+                                {% for language in languages %}
+                                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                        {{ language.name_local }} ({{ language.code }})
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+            <div
+              class="
+                d-flex
+                justify-content-between
+                flex-wrap flex-md-nowrap
+                align-items-center
+                pt-3
+                pb-2
+                mb-3
+                border-bottom
+              "
+            >
+              <h2 class="h2">{{ title }}</h2>
+            </div>
+          {% block content %} {% endblock %}
+        </main>
+      </div>
+    </div>
+{% endblock %}
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

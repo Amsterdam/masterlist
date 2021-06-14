@@ -7,3 +7,4 @@ psycopg2-binary
 sentry-sdk
 django_extensions
 drf_amsterdam
+django-filter

@@ -1,8 +1,12 @@
+from django.contrib.postgres.fields import CICharField
 from django.db import models
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=255)
+    class Meta:
+        ordering = ['-project_number']
+
+    name = CICharField(max_length=255)
     project_number = models.BigIntegerField()
     old_project_numbers = models.CharField(max_length=255, blank=True, null=True)
     url = models.CharField(max_length=255, blank=True, null=True)
@@ -97,7 +101,7 @@ class Project(models.Model):
     lijst_remco = models.BigIntegerField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name} ({self.project_number})"
 
 
 class ProjectStatus(models.Model):

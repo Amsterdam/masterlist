@@ -1,0 +1,8 @@
+{% extends 'main.html' %}
+{% block content %}
+<h4>Projects</h4>
+<div class="table-responsive">{% include 'project/snippets/project_table.html' %}</div>
+
+<h4>Teams</h4>
+<div class="table-responsive">{% include 'organization/snippets/team_table.html' %}</div>
+{% endblock %}
