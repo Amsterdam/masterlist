@@ -33,7 +33,6 @@ class ProjectAdmin(admin.ModelAdmin):
         'project_number',
         'team',
         'customer',
-        'support_contract_status',
     )
     list_filter = ['team', 'project_status', 'personal_data_status']
     radio_fields = {
