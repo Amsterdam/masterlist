@@ -8,3 +8,4 @@ sentry-sdk
 django_extensions
 drf_amsterdam
 django-filter
+werkzeug

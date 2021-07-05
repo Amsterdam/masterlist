@@ -32,7 +32,7 @@ services:
     environment:
       <<: *base-app-env
       DEBUG: "true"
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver_plus --print-sql 0.0.0.0:8000
 
   app:
     <<: *base-app

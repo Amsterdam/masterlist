@@ -1,10 +1,14 @@
 from django.contrib.postgres.fields import CICharField
 from django.db import models
 
+from project.managers import ProjectManager
+
 
 class Project(models.Model):
     class Meta:
         ordering = ['-project_number']
+
+    objects = ProjectManager()
 
     name = CICharField(max_length=255)
     project_number = models.BigIntegerField()

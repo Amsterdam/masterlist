@@ -28,7 +28,7 @@ class SearchView(LoginRequiredMixin, TemplateView):
         search_fields_mapping = dict(
             projects=dict(
                 model=Project,
-                fields=['name', 'project_number'],
+                fields=['name', 'project_number', 'team__name'],
             ),
             teams=dict(
                 model=Team,

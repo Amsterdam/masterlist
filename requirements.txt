@@ -33,7 +33,7 @@ drf-amsterdam==0.4.1
     # via -r requirements.in
 drf-extensions==0.7.0
     # via drf-amsterdam
-psycopg2-binary==2.8.6
+psycopg2-binary==2.9.1
     # via -r requirements.in
 pytz==2021.1
     # via django
@@ -47,3 +47,5 @@ unicodecsv==0.14.1
     # via djangorestframework-csv
 urllib3==1.26.5
     # via sentry-sdk
+werkzeug==2.0.1
+    # via -r requirements.in

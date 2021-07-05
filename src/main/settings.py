@@ -25,6 +25,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = strtobool(os.getenv('DEBUG', 'false'))
+SHELL_PLUS_PRINT_SQL = True
+SHELL_PLUS_PRINT_SQL_TRUNCATE = None
+RUNSERVER_PLUS_PRINT_SQL_TRUNCATE = None
 
 ALLOWED_HOSTS = ['*']
 LOGIN_URL = 'login'
