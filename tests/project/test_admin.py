@@ -39,3 +39,6 @@ class TestAdminExport:
         assert row['wpd_completion_date'] == project.wpd_completion_date
         assert row['privacy_status_updates'] == project.privacy_status_updates
         assert row['project_description'] == project.description
+        assert row['support_contract_status'] == project.support_contract_status.name
+        assert row['support_contract_start'] == project.support_contract_start
+        assert row['support_contract_end'] == project.support_contract_end

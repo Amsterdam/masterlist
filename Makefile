@@ -3,8 +3,10 @@
 #
 # VERSION = 2020.01.29
 .PHONY = help pip-tools install requirements update test init
+UID:=$(shell id --user)
+GID:=$(shell id --group)
 dc = docker-compose
-run = $(dc) run --rm
+run = $(dc) run --rm -u ${UID}:${GID}
 manage = $(run) dev python manage.py
 pytest = $(run) test pytest $(ARGS)
 
