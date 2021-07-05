@@ -33,7 +33,7 @@ class ProjectAdmin(admin.ModelAdmin):
         'project_number',
         'team',
         'customer',
-        'support_contract_status'
+        'support_contract_status',
     )
     list_filter = ['team', 'project_status', 'personal_data_status']
     radio_fields = {
@@ -62,7 +62,8 @@ class ProjectAdmin(admin.ModelAdmin):
             team_name=F('team__name'),
             organization_name=F('customer__organization__name'),
             contact_name=F('contact__name'),
-            support_contract_status=F('support_contract_start'),
+            support_contract_status=F('support_contract_status__name'),
+            support_contract_start=F('support_contract_start'),
             support_contract_end=F('support_contract_end'),
             personal_data_status=F('personal_data_status__name'),
             wpd_document_status=F('wpd_document_status__name'),
