@@ -19,8 +19,8 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import include, path, re_path
-from organization.views import TeamsView
 
+from organization.views import TeamsView
 from project.views import ProjectView
 from search.views import SearchView
 
