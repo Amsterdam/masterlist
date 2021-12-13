@@ -12,10 +12,6 @@ attrs==21.2.0
     # via pytest
 backcall==0.2.0
     # via ipython
-backports.zoneinfo==0.2.1
-    # via
-    #   -r ./requirements.txt
-    #   django
 black==21.12b0
     # via -r requirements_dev.in
 certifi==2021.10.8
@@ -36,7 +32,7 @@ defusedxml==0.7.1
     # via
     #   -r ./requirements.txt
     #   djangorestframework-xml
-django==4.0
+django==3.2.10
     # via
     #   -r ./requirements.txt
     #   django-extensions
@@ -130,7 +126,9 @@ pytest-factoryboy==2.1.0
 python-dateutil==2.8.2
     # via faker
 pytz==2021.3
-    # via -r ./requirements.txt
+    # via
+    #   -r ./requirements.txt
+    #   django
 sentry-sdk==1.5.0
     # via -r ./requirements.txt
 six==1.16.0
