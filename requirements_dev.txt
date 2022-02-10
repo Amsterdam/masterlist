@@ -14,10 +14,6 @@ attrs==21.4.0
     # via pytest
 backcall==0.2.0
     # via ipython
-backports.zoneinfo==0.2.1
-    # via
-    #   -r ./requirements.txt
-    #   django
 black==21.12b0
     # via
     #   -r requirements_dev.in
@@ -40,7 +36,7 @@ defusedxml==0.7.1
     # via
     #   -r ./requirements.txt
     #   djangorestframework-xml
-django==4.0.1
+django==4.0.2
     # via
     #   -r ./requirements.txt
     #   django-extensions

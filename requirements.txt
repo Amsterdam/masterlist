@@ -6,13 +6,11 @@
 #
 asgiref==3.5.0
     # via django
-backports.zoneinfo==0.2.1
-    # via django
 certifi==2021.10.8
     # via sentry-sdk
 defusedxml==0.7.1
     # via djangorestframework-xml
-django==4.0.1
+django==4.0.2
     # via
     #   -r requirements.in
     #   django-extensions
