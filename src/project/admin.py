@@ -70,5 +70,7 @@ class ProjectAdmin(admin.ModelAdmin):
             privacy_status_updates=F('privacy_status_updates'),
             project_description=F('description'),
             lijst_remco=F('lijst_remco'),
+            bio_quickscan_available=F('bio_quickscan_available'),
+            bio_quickscan_path=F('bio_quickscan_path')            
         )
         return csv_export.export("export", qs.iterator(), download=True)
