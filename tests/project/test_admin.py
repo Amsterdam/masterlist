@@ -34,11 +34,21 @@ class TestAdminExport:
         assert row['id'] == str(project.pk)
         assert row['name'] == project.name
         assert row['project_number'] == str(project.project_number)
-        assert row['name'] == project.name
+        assert row['project_type'] == project.project_type.name
+        assert row['project_status'] == project.project_status.name
+        assert row['project_manager'] == project.project_manager_user.name
+        assert row['account_holder'] == project.account_holder_user.name
+        assert row['team_name'] == project.team.name
+        assert row['organization_name'] == project.customer.organization.name
+        assert row['contact_name'] == project.contact.name
+        assert row['support_contract_status'] == project.support_contract_status.name
+        assert row['support_contract_start'] == project.support_contract_start
+        assert row['support_contract_end'] == project.support_contract_end
+        assert row['personal_data_status'] == project.personal_data_status.name
         assert row['wpd_document_status'] == project.wpd_document_status.name
         assert row['wpd_completion_date'] == project.wpd_completion_date
         assert row['privacy_status_updates'] == project.privacy_status_updates
         assert row['project_description'] == project.description
-        assert row['support_contract_status'] == project.support_contract_status.name
-        assert row['support_contract_start'] == project.support_contract_start
-        assert row['support_contract_end'] == project.support_contract_end
+        assert row['lijst_remco'] == str(project.lijst_remco)
+        assert row['bio_quickscan_available'] == str(project.bio_quickscan_available)
+        assert row['bio_quickscan_path'] == project.bio_quickscan_path
