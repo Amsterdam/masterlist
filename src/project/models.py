@@ -80,6 +80,8 @@ class Project(models.Model):
     security_confidentiality_level = models.ForeignKey(
         'SecurityConfidentialityLevel', models.SET_NULL, blank=True, null=True
     )
+    bio_quickscan_available = models.BooleanField(default=False, blank=True, null=True)
+    bio_quickscan_path = models.CharField(max_length=255, blank=True, null=True)
     security_scan_required = models.TextField(
         blank=True, null=True
     )  # This field type is a guess.
