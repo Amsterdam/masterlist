@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.1](https://www.github.com/Amsterdam/masterlist/compare/v1.2.0...v1.2.1) (2022-03-07)
+
+
+### Bug Fixes
+
+* Make v prefix for tags optional to run the jenkins pipeline ([9c8cc83](https://www.github.com/Amsterdam/masterlist/commit/9c8cc837242170792bead2b95130ae4deb1de584))
+
 ## [1.2.0](https://www.github.com/Amsterdam/masterlist/compare/v1.1.4...v1.2.0) (2021-07-05)
 
 
