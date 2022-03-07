@@ -72,7 +72,7 @@ pipeline {
         }
 
         stage('Deploy to production') {
-            when { tag pattern: "v\\d+\\.\\d+\\.\\d+\\.*", comparator: "REGEXP" }
+            when { tag pattern: "v?\\d+\\.\\d+\\.\\d+\\.*", comparator: "REGEXP" }
             steps {
                 sh 'VERSION=production make push'
                 build job: 'Subtask_Openstack_Playbook', parameters: [
