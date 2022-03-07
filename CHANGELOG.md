@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://www.github.com/Amsterdam/masterlist/compare/v1.2.1...v1.3.0) (2022-03-07)
+
+
+### Features
+
+* manual version bump ([2b4dad3](https://www.github.com/Amsterdam/masterlist/commit/2b4dad38cc3851ae143d951108d08e75a05066d4))
+
 ### [1.2.1](https://www.github.com/Amsterdam/masterlist/compare/v1.2.0...v1.2.1) (2022-03-07)
 
 
