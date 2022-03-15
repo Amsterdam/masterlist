@@ -3,6 +3,7 @@ from django.db import models
 
 class Project(models.Model):
     name = models.CharField(max_length=255)
+    asset_id = models.CharField(max_length=255, blank=True, null=True)
     project_number = models.BigIntegerField()
     old_project_numbers = models.CharField(max_length=255, blank=True, null=True)
     url = models.CharField(max_length=255, blank=True, null=True)

@@ -33,6 +33,7 @@ class TestAdminExport:
         row = rows[0]
         assert row['id'] == str(project.pk)
         assert row['name'] == project.name
+        assert row['asset_id'] == (project.asset_id or "")
         assert row['project_number'] == str(project.project_number)
         assert row['project_type'] == project.project_type.name
         assert row['project_status'] == project.project_status.name
