@@ -21,7 +21,7 @@ for i in default_models:
 @admin.register(models.Project)
 class ProjectAdmin(admin.ModelAdmin):
     save_on_top = True
-    search_fields = ('name', 'project_number')
+    search_fields = ('name', 'asset_id', 'project_number')
     autocomplete_fields = [
         'customer',
         'contact',
@@ -52,6 +52,7 @@ class ProjectAdmin(admin.ModelAdmin):
         # We use F values here to control the order
         qs = qs.values('id').annotate(
             name=F('name'),
+            asset_id=F('asset_id'),
             project_number=F('project_number'),
             project_name=F('name'),
             project_type=F('project_type__name'),
