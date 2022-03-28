@@ -14,7 +14,7 @@ attrs==21.4.0
     # via pytest
 backcall==0.2.0
     # via ipython
-backports.zoneinfo==0.2.1
+backports-zoneinfo==0.2.1
     # via
     #   -r ./requirements.txt
     #   django
@@ -71,7 +71,7 @@ factory-boy==3.2.1
     # via
     #   -r requirements_dev.in
     #   pytest-factoryboy
-faker==13.3.0
+faker==13.3.3
     # via factory-boy
 inflection==0.5.1
     # via pytest-factoryboy
@@ -79,7 +79,7 @@ iniconfig==1.1.1
     # via pytest
 ipdb==0.13.9
     # via -r requirements_dev.in
-ipython==8.1.1
+ipython==8.2.0
     # via ipdb
 isort==5.10.1
     # via -r requirements_dev.in
@@ -121,7 +121,7 @@ pygments==2.11.2
     # via ipython
 pyparsing==3.0.7
     # via packaging
-pytest==7.0.1
+pytest==7.1.1
     # via
     #   -r requirements_dev.in
     #   pytest-cov
@@ -135,11 +135,11 @@ pytest-factoryboy==2.1.0
     # via -r requirements_dev.in
 python-dateutil==2.8.2
     # via faker
-pytz==2021.3
+pytz==2022.1
     # via
     #   -r ./requirements.txt
     #   djangorestframework
-sentry-sdk==1.5.6
+sentry-sdk==1.5.8
     # via -r ./requirements.txt
 six==1.16.0
     # via
@@ -170,7 +170,7 @@ unicodecsv==0.14.1
     # via
     #   -r ./requirements.txt
     #   djangorestframework-csv
-urllib3==1.26.8
+urllib3==1.26.9
     # via
     #   -r ./requirements.txt
     #   sentry-sdk
