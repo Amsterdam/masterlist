@@ -8,7 +8,7 @@ asgiref==3.5.2
     # via
     #   -r ./requirements.txt
     #   django
-asttokens==2.1.0
+asttokens==2.2.0
     # via stack-data
 attrs==22.1.0
     # via pytest
@@ -63,7 +63,7 @@ drf-extensions==0.7.1
     # via
     #   -r ./requirements.txt
     #   drf-amsterdam
-exceptiongroup==1.0.2
+exceptiongroup==1.0.4
     # via pytest
 executing==1.2.0
     # via stack-data
@@ -71,7 +71,7 @@ factory-boy==3.2.1
     # via
     #   -r requirements_dev.in
     #   pytest-factoryboy
-faker==15.3.1
+faker==15.3.4
     # via factory-boy
 inflection==0.5.1
     # via pytest-factoryboy
@@ -79,11 +79,11 @@ iniconfig==1.1.1
     # via pytest
 ipdb==0.13.9
     # via -r requirements_dev.in
-ipython==8.6.0
+ipython==8.7.0
     # via ipdb
 isort==5.10.1
     # via -r requirements_dev.in
-jedi==0.18.1
+jedi==0.18.2
     # via ipython
 matplotlib-inline==0.1.6
     # via ipython
@@ -103,13 +103,13 @@ pexpect==4.8.0
     # via ipython
 pickleshare==0.7.5
     # via ipython
-pip-tools==6.10.0
+pip-tools==6.11.0
     # via -r requirements_dev.in
 platformdirs==2.5.4
     # via black
 pluggy==1.0.0
     # via pytest
-prompt-toolkit==3.0.32
+prompt-toolkit==3.0.33
     # via ipython
 psycopg2-binary==2.9.5
     # via -r ./requirements.txt
@@ -131,7 +131,7 @@ pytest-cov==4.0.0
     # via -r requirements_dev.in
 pytest-django==4.5.2
     # via -r requirements_dev.in
-pytest-factoryboy==2.5.0
+pytest-factoryboy==2.5.1
     # via -r requirements_dev.in
 python-dateutil==2.8.2
     # via faker
@@ -139,7 +139,7 @@ pytz==2022.6
     # via
     #   -r ./requirements.txt
     #   djangorestframework
-sentry-sdk==1.10.1
+sentry-sdk==1.11.1
     # via -r ./requirements.txt
 six==1.16.0
     # via
@@ -150,7 +150,7 @@ sqlparse==0.4.3
     # via
     #   -r ./requirements.txt
     #   django
-stack-data==0.6.1
+stack-data==0.6.2
     # via ipython
 toml==0.10.2
     # via ipdb
@@ -161,7 +161,7 @@ tomli==2.0.1
     #   coverage
     #   pep517
     #   pytest
-traitlets==5.5.0
+traitlets==5.6.0
     # via
     #   ipython
     #   matplotlib-inline
@@ -171,7 +171,7 @@ unicodecsv==0.14.1
     # via
     #   -r ./requirements.txt
     #   djangorestframework-csv
-urllib3==1.26.12
+urllib3==1.26.13
     # via
     #   -r ./requirements.txt
     #   sentry-sdk
