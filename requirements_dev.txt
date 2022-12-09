@@ -18,7 +18,7 @@ black==22.10.0
     # via -r requirements_dev.in
 build==0.9.0
     # via pip-tools
-certifi==2022.9.24
+certifi==2022.12.7
     # via
     #   -r ./requirements.txt
     #   sentry-sdk
@@ -63,8 +63,6 @@ drf-extensions==0.7.1
     # via
     #   -r ./requirements.txt
     #   drf-amsterdam
-exceptiongroup==1.0.4
-    # via pytest
 executing==1.2.0
     # via stack-data
 factory-boy==3.2.1
@@ -154,13 +152,6 @@ stack-data==0.6.2
     # via ipython
 toml==0.10.2
     # via ipdb
-tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   coverage
-    #   pep517
-    #   pytest
 traitlets==5.6.0
     # via
     #   ipython
