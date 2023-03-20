@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://www.github.com/Amsterdam/masterlist/compare/v1.3.0...v1.4.0) (2023-03-20)
+
+
+### Features
+
+* **Project:** Added asset_id to project ([da12c76](https://www.github.com/Amsterdam/masterlist/commit/da12c76ca50d2d28bf962d43260ea001e9330ee4))
+
 ## [1.3.0](https://www.github.com/Amsterdam/masterlist/compare/v1.2.1...v1.3.0) (2022-03-07)
 
 
