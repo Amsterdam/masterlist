@@ -14,11 +14,9 @@ jobs:
     with:
       check_diff: false  # Create a list of major upgrades. Needs the Makefile target "diff"
       slack_channel: 'opdrachten-dependabot'  # Slack channel to post release steps to
-      timetell_code: 21127  # Timetell project id
-      acceptance_pipeline: "https://ci.secure.amsterdam.nl/job/Opdrachten/job/Quotumtool/job/Quotumtool/job/main/"
-      production_pipeline: "https://ci.secure.amsterdam.nl/job/Opdrachten/job/Quotumtool/job/Quotumtool/view/tags/"
-      acceptance_urls: "https://acc.api.secure.amsterdam.nl/vergunningen/quota/kameromzettingen/dashboard/,
-      https://acc.api.secure.amsterdam.nl/vergunningen/quota/bb/dashboard/"
-      production_urls: "https://api.secure.amsterdam.nl/vergunningen/quota/kameromzettingen/dashboard/,
-      https://api.secure.amsterdam.nl/vergunningen/quota/bb/dashboard/"
+      timetell_code: 20119  # Timetell project id
+      acceptance_pipeline: "https://ci.data.amsterdam.nl/job/opdrachten-team/job/masterlist/job/masterlist-pipeline/job/main/"
+      production_pipeline: "https://ci.data.amsterdam.nl/job/opdrachten-team/job/masterlist/job/masterlist-pipeline/view/tags/"
+      acceptance_urls: "https://acc.masterlist.amsterdam.nl/admin/login/"
+      production_urls: "https://masterlist.amsterdam.nl/admin/login/"
 
