@@ -10,7 +10,7 @@ certifi==2023.7.22
     # via sentry-sdk
 defusedxml==0.7.1
     # via djangorestframework-xml
-django==4.1.11
+django==4.1.12
     # via
     #   -r requirements.in
     #   django-extensions
@@ -30,13 +30,13 @@ drf-amsterdam==0.4.1
     # via -r requirements.in
 drf-extensions==0.7.1
     # via drf-amsterdam
-psycopg2-binary==2.9.8
+psycopg2-binary==2.9.9
     # via -r requirements.in
 pytz==2023.3.post1
     # via
     #   -r requirements.in
     #   djangorestframework
-sentry-sdk==1.31.0
+sentry-sdk==1.32.0
     # via -r requirements.in
 six==1.16.0
     # via djangorestframework-csv
@@ -46,5 +46,5 @@ typing-extensions==4.8.0
     # via asgiref
 unicodecsv==0.14.1
     # via djangorestframework-csv
-urllib3==2.0.5
+urllib3==2.0.6
     # via sentry-sdk
