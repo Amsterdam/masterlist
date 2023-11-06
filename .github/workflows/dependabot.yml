@@ -16,7 +16,7 @@ jobs:
       slack_channel: 'opdrachten-dependabot'  # Slack channel to post release steps to
       timetell_code: 20119  # Timetell project id
       acceptance_pipeline: "https://ci.data.amsterdam.nl/job/opdrachten-team/job/masterlist/job/masterlist-pipeline/job/main/"
-      production_pipeline: "https://ci.data.amsterdam.nl/job/opdrachten-team/job/masterlist/job/masterlist-pipeline/view/tags/"
+      production_pipeline: "https://ci.data.amsterdam.nl/job/opdrachten-team/job/masterlist/job/masterlist-pipeline/view/tags/jobs/<tag>/"
       acceptance_urls: "https://acc.masterlist.amsterdam.nl/admin/login/"
       production_urls: "https://masterlist.amsterdam.nl/admin/login/"
 
